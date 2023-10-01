@@ -1,0 +1,229 @@
+$general-borders-color: #dfdfdf;
+
+@mixin general-style-main-header-button {
+    background-color: #16a3b7;
+    border-radius: 3px;
+    border: 1px solid #16a3b7;
+    color: white;
+    cursor: pointer;
+    font-family: NanumMyeongjo-Regular;
+}
+
+@mixin general-style-footer-button {
+    padding: 10px 5px;
+    margin-top: 50px;
+    font-family: NanumMyeongjo-Regular;
+    width: 200px;
+    background-color: #dc3445;
+    border-radius: 3px;
+    border: 1px solid #dc3445;
+    color: white;
+    cursor: pointer;
+}
+
+@font-face {
+    font-family: RobotoLight;
+    src: url(../fonts/Roboto-Light.ttf);
+}
+
+@font-face {
+    font-family: RobotoMedium;
+    src: url(../fonts/Roboto-Light.ttf);
+}
+
+@font-face {
+    font-family: NanumMyeongjo-Regular;
+    src: url(../fonts/NanumMyeongjo-Regular.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container{
+    width: fit-content;
+    margin: auto;
+}
+
+.todoInputContainer{
+    width: fit-content;
+    padding: 15px;
+
+    .todoInputitlContenet{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        h1 {
+            font-family: RobotoLight, sans-serif;
+        }
+    }
+}
+
+.todoAddContent{
+    padding: 15px;
+    margin-top: 20px;
+    border: 3px solid $general-borders-color;
+    border-radius: 5px;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    .todoInputContent{
+        margin: auto;
+        display: flex;
+        justify-content: center;
+
+        img{
+            background: #16a3b7;
+            padding: 5px;
+        }
+
+        .todoInputValue{
+            width: 400px;
+            padding: 3px;
+            border: 1px solid black;
+        }
+
+        .todoInputError{
+            width: 400px;
+            padding: 3px;
+            border: 1px solid red;
+        }
+    }
+
+    .todoInputErrorMessage{
+        margin-top: 5px;
+        position: absolute;
+
+        .todoSpan{
+            display: none;
+            margin-left: 36px;
+        }
+
+        .todoMessage{
+            display: block;
+            color: red;
+            margin-left: 36px;
+        }   
+    }
+
+    .todoAddButtonContent {
+        width: 100%;
+        margin-top: 20px;
+
+        button{
+            @include general-style-main-header-button;
+            width: inherit;
+            padding: 6px 0;
+        }   
+    }
+}
+
+
+
+.todoToolsMain{
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;  
+
+    button{
+        @include general-style-main-header-button;
+        width: 20%;
+        padding: 5px;    
+    }
+}
+
+.todoListContent {
+    margin-top: 20px;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    li{        
+        padding: 8px 15px;
+        border: 3px solid $general-borders-color;
+        display: flex;
+        justify-content: space-between;
+
+        .todoTitle {
+            font-family: RobotoMedium, 'sanserif';
+            text-transform: capitalize;
+        }
+
+        .doneTodo {
+            text-decoration: line-through;
+            text-decoration-line: red;
+            color: red
+        }
+
+        .todoToolsContent {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            input {
+                accent-color: #35a04c;
+            }
+        }
+    }
+}
+
+
+.renametask{
+    display: none;
+    padding: 15px;
+
+    .renameTaskContent{
+
+        .renameIput{
+            height: 25px;
+        }
+
+        .renameInputError{
+            border: 1px solid red;
+        }
+
+        button{
+            @include general-style-main-header-button;
+            height: 25px;
+            margin-left: 10px;
+            padding: 5px;
+        }
+    }
+
+    .renameTaskErrorMessage{
+        margin-top: 5px;
+
+        .renameTodoError{
+            display: none;
+        }
+
+        .renameTodoErrorMessage{
+            display: block;
+            color: red;
+        }
+    }
+}
+   
+.activerenametask {
+    position: absolute;
+    display: block;
+}
+
+.todoToolsFooter{
+    margin-top: 25px;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+
+    button{
+        @include general-style-footer-button;
+    }
+}
